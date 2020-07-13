@@ -19,6 +19,4 @@ def main():
 
 
 if __name__ == '__main__':
-    dotenv.read_dotenv(override=True)
-
     main()
