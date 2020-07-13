@@ -1,0 +1,25 @@
+{% load static %}
+
+    <footer class="footer has-text-centered">
+      <div class="container">
+         <div class="columns">
+          <div class="column is-8-desktop is-offset-2-desktop">
+            <p>
+              <strong class="has-text-weight-semibold">
+                <a href="{% url 'sobre' %}">Ariana Schmitz</a>
+              </strong>
+            </p>
+            <p>
+              <small>
+                Nutrição Clínica Funcional e Esportiva - <a>Todos os direitos reservados</a>
+              </small>
+            </p>
+            <p style="margin-top: 1rem;">
+              <a href="{% url 'home' %}">
+                <img src="{% static 'img/ariana-transparente.png' %}" alt="Made with Bulma" width="128" height="24">
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>

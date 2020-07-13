@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% include 'partials/_menu.html' %}
+
+  <!-- Image -->
+  <section class="hero ">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-8 is-offset-2">
+            <figure class="image is-16by9">
+              {% if postagem.image == '' or postagem.image == NULL %}
+                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+              {% else %}
+                <img src="{{ postagem.image.url }}">
+              {% endif %}
+            </figure>
+          </div>
+        </div>
+
+        <section class="section">
+          <div class="columns">
+            <div class="column is-8 is-offset-2">
+              <div class="content is-medium">
+                <h2 class="subtitle is-4">Postado em: {{ postagem.data_postagem|date:"d F, Y" }}</h2>
+                {% if postagem.data_postagem|date:"d F, Y" != postagem.data_modificacao|date:"d F, Y" %}
+                  <h2 class="subtitle is-4">Modificado em: {{ postagem.data_modificacao|date:"d F, Y" }}</h2>
+                {% endif %}
+                <h1 class="title">{{ postagem.titulo }}</h1>
+                <p>{{ postagem.texto_postagem }}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Articles -->
+
+  <section class="hero ">
+    <div class="hero-body">
+      <div class="container">
+
+        <section class="section">
+          <div class="columns is-variable is-8">
+        {% for destaque in destaques %}
+            <div class="column is-5 is-offset-1 ">
+              <div class="content is-medium">
+                <h2 class="subtitle is-5 has-text-grey">{{destaque.data_modificacao}}</h2>
+                <h1 class="title has-text-black is-3">{{destaque.titulo}}</h1>
+                <p class="has-text-dark">{{destaque.texto_postagem|truncatewords:50}}</p>
+              </div>
+            </div>
+        {% endfor %}
+          </div>
+        </section>
+
+        <div class="is-divider"></div>
+
+      </div>
+    </div>
+  </section>
+
+  {% include 'partials/_footer.html' %}
+{% endblock %}

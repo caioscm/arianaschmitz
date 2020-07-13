@@ -1,0 +1,62 @@
+{% load static %}
+
+<section class="section is-large">
+
+    <div class="container">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="notification {{message.tags}}">
+                    {{message}}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <div class="content has-text-centered">
+
+            <h3 class="is-size-2">Contato</h3>
+
+        </div>
+        <form action="{% url 'send-message' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="columns">
+                <div class="column is-2"></div>
+                <div class="column is-8">
+
+                    <div class="field">
+                        <label class="label">Nome</label>
+                        <div class="control">
+                            <input class="input" type="text" name="nome" placeholder="Seu nome" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Email</label>
+                            <div class="control has-icons-left">
+                                <input class="input" type="email" name="email" placeholder="Email" required>
+                                <span class="icon is-small is-left">
+                                <i class="fas fa-envelope"></i>
+                                </span>
+                            </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Messagem</label>
+                            <div class="control">
+                                <textarea class="textarea" name="mensagem" placeholder="Sua mensagem aqui" required></textarea>
+                            </div>
+                    </div>
+
+                    <div class="g-recaptcha field" data-sitekey="6LfJlqgZAAAAAOUX4rTOWy3kQsR9_C_JoEjhLJwK"></div>
+
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <button class="button is-link" type="submit">Enviar</button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="column is-2"></div>
+            </div>
+        </form>
+    </div>
+</section>

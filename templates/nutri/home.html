@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% include 'partials/_menu.html' %}
+
+		<section class="bg-hero-1 hero is-large">
+
+		  	<div class="hero-body">
+		   		<div class="container has-text-centered">
+		      		<h1 class="title is-1">
+		       			Nutrição com amor
+		      		</h1>
+		      		<h2 class="subtitle is-4">
+		        		Seja bem-vindo ao meu site.<br> Aqui você encontrará informações sobre o meu trabalho e a minha história, além de receitas e dicas sobre alimentação e saúde. Espero que aproveite.
+		      		</h2>
+		    	</div>
+		 	 </div>
+
+		</section>
+
+		<section class="section is-large">
+
+		    <div class="container">
+
+		      	<div class="columns">
+		      		<div class="column is-2"></div>
+		      		<div class="column is-4">
+		        		<div class="content">
+		        			<h3 class="is-size-2">Quem sou eu</h3>
+		        			<hr>
+		       				<p class="is-size-6">Olá, eu sou a Ariana Schmitz. Sou nutricionista e acredito que a alimentação deve ser algo leve e prazeroso. Acredito que cada indivíduo é único e que a alimentação deve nos completar e não limitar. Amo ajudar as pessoas a criarem consciência sobre a importância dos alimentos no funcionamento e no fluxo de energia do organismo, refletindo diretamente na qualidade de vida. É isso que tento passar nos meus atendimentos, leveza e consciência. Sou professora de cursos de pós-graduação de Nutrição Clínica Funcional e Nutrição Esportiva Funcional, o que me ajuda a estar sempre atualizada e a ter uma visão crítica e equilibrada sobre as informações da área da nutrição, sem cair em modismos e radicalismos.Tenho doutorado em Bioquímica, sendo que tive a honra de ser convidada a fazer parte dele na Universidade de Yale, nos EUA. Além disso, tenho mestrado em Neurociências.</p>
+		      			</div>
+		      		</div>
+
+		    
+
+		   			<div class="column is-4 foto-ari">
+
+		        		<figure class="image is-square">
+							<img src="{% static 'img/ariana-perfil.jpg' %}">
+						</figure>
+
+					<div class="column is-2"></div>
+		      		</div>
+
+
+
+		        </div>
+
+		    	
+
+		    </div>
+
+		</section>
+		<hr style="width: 50%; margin: auto;">
+	    <section class="section is-large">
+	    	<div class="container">
+
+	    		<div class="content has-text-centered">
+		    		
+		    		<h3 class="is-size-2">Depoimentos</h3>
+
+		    	</div>
+
+	    		<div class="columns">
+	    			<hr>
+	    			<div class="column is-2"></div>
+
+	    			<div class="column is-8">
+	    				<div class="content">
+	    					
+				    		<blockquote>"Fiz um exame de intolerância alimentar alguns anos atrás e não havia colocado em prática ainda. Após as consultas com a Dra. Ariana, fui aconselhado a iniciar a restrição do consumo desses alimentos e o resultado está sendo fantástico, principalmente com grande redução da minhas crises de rinite alérgica. Com um pouco de organização da rotina, consigo respeitar a dieta e me alimentar super bem, sem passar fome e com disposição”.<br><br>Douglas Strelow</blockquote>
+				    	</div>
+			    	</div>
+			    	<div class="column is-4">
+	    				<!--<div class="content">
+	
+				    		<blockquote>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				    		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				    		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				    		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				    		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				    		proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</blockquote>
+				    	</div>-->
+			    	</div>
+
+			    	<div class="column is-2"></div>
+			    	
+		    	</div>
+
+	    	</div>
+	    	
+	    </section>
+	    <hr style="width: 50%; margin: auto;">
+
+
+	{% include 'partials/_contact_form.html' %}
+    {% include 'partials/_footer.html' %}
+
+{% endblock %}
