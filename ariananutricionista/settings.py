@@ -151,3 +151,5 @@ MESSAGE_TAGS = {
     messages.ERROR: 'is-danger',
     messages.SUCCESS: 'is-success',
 }
+
+django_heroku.settings(locals())
