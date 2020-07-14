@@ -7147,14 +7147,12 @@ p {
   font-family: 'Roboto', sans-serif; }
 
 .bg-hero-1 {
-  /*background-image: url("../img/bg-hero.jpg");*/
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover; }
 
 .bg-hero-2 {
-  background-image: url("../img/bg-hero-quem-sou.jpg");
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
