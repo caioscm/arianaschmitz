@@ -4,158 +4,123 @@
 
 {% include 'partials/_menu.html' %}
 
-		<section class="bg-hero-3 hero is-large" style="background-image: url({% static 'img/imagem-receitas.jpg' %})">
+<section class="bg-hero-3 hero is-large" style="background-image: url({% static 'img/imagem-blog.jpg' %})">
+	<div class="hero-body">
+		<div class="container has-text-centered">
+			<h1 class="title is-1">
+				Blog
+			</h1>
+		</div>
+	 </div>
+</section>
 
-		  	<div class="hero-body">
-		   		<div class="container has-text-centered">
-		      		<h1 class="title is-1">
-		       			Blog
-		      		</h1>
-		    	</div>
-		 	 </div>
-
-		</section>
-
-		<section class="section is-large">
-			
-			<div class="container">
-
-				<div class="columns">
-
-					<div class="column is-1"></div>
-
-					<div class="column is-6">
-						<div class="content has-text-left">
-
-							<h2>Últimos posts</h2>
-
-						</div>
-					{% if postagens %}
-					{% for postagem in postagens %}
-
+<section class="section is-large">
+	<div class="container">
+		<div class="content has-text-left">
+			<h2>Últimos posts</h2>
+		</div>
+		<div class="columns is-7">
+			<div class="column is-6">
+				{% if postagens %}
+				{% for postagem in postagens %}
+				<div class="column is-12 pb-4">
 					<div class="card">
-					<div class="card-image">
-					<figure class="image is-4by3">
-						{% if postagem.image == '' or postagem.image == NULL %}
-						<img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-						{% else %}
-							<img src="{{ postagem.image.url }}">
-						{% endif %}
-					</figure>
-					</div>
-					<div class="card-content">
-					<div class="media">
-					<div class="media-left">
-					<figure class="image is-48x48">
-					<img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-					</figure>
-					</div>
-					<div class="media-content">
-					<p class="title is-4"><a href="{% url 'blog-post' postagem.titulo %}">{{ postagem.titulo }}</a></p>
-					<p class="subtitle is-6">{{ postagem.assuntos }}</p>
-					</div>
-					</div>
-
-					<div class="content">{{ postagem.texto_postagem }}
-					<br>
-					<p class="has-text-weight-light py-2">Postado em: {{ postagem.data_postagem|date:"d F, Y" }}</p>
-					{% if postagem.data_postagem|date:"d F, Y" != postagem.data_modificacao|date:"d F, Y" %}
-						<p class="has-text-weight-light py-2">Modificado em: {{ postagem.data_modificacao|date:"d F, Y" }}</p>
-					{% endif %}
-					</div>
-					</div>
-					</div>
-
-					{% endfor %}
-					{% endif %}
-					</div>
-
-					<div class="column is-4">
-
-						<div class="content has-text-left">
-							
-							<h2>Posts em destaque</h2>
-
+						<div class="card-image">
+							<figure class="image is-4by3">
+								{% if postagem.image == '' or postagem.image == NULL %}
+								<img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+								{% else %}
+								<img src="{{ postagem.image.url }}">
+								{% endif %}
+							</figure>
 						</div>
-
-					{% if destaques %}
-					{% for destaque in destaques %}
-					<div class="card">
-					<div class="card-image">
-					<figure class="image is-4by3">
-						{% if destaque.image == '' or destaque.image == NULL %}
-							<img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-						{% else %}
-							<img src="{{ destaque.image.url }}">
-						{% endif %}
-					</figure>
+						<div class="card-content">
+							<div class="media">
+								<div class="media-content">
+									<p class="title is-4"><a href="{% url 'blog-post' postagem.titulo %}">{{ postagem.titulo }}</a></p>
+									<p class="subtitle is-6">{{ postagem.assuntos }}</p>
+								</div>
+							</div>
+							<div class="content">
+								<p>{{ postagem.texto_postagem|truncatewords:35 }}</p>
+								<br>
+								<p class="has-text-weight-light py-2">Postado em: {{ postagem.data_postagem|date:"d F, Y" }}</p>
+								{% if postagem.data_postagem|date:"d F, Y" != postagem.data_modificacao|date:"d F, Y" %}
+								<p class="has-text-weight-light py-2">Modificado em: {{ postagem.data_modificacao|date:"d F, Y" }}</p>
+								{% endif %}
+							</div>
+						</div>
 					</div>
-					<div class="card-content">
-					<div class="media">
-					<div class="media-left">
-					<figure class="image is-48x48">
-					<img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-					</figure>
-					</div>
-					<div class="media-content">
-					<p class="title is-4"><a href="{% url 'blog-post' destaque.titulo %}">{{ destaque.titulo }}</a></p>
-					<p class="subtitle is-6">{{ destaque.assuntos }}</p>
-					</div>
-					</div>
-
-					<div class="content">{{ destaque.texto_postagem }}
-					<br>
-					<p class="has-text-weight-light py-2">Postado em: {{ destaque.data_postagem|date:"d F, Y" }}</p>
-					{% if destaque.data_postagem|date:"d F, Y" != destaque.data_modificacao|date:"d F, Y" %}
-						<p class="has-text-weight-light py-2">Modificado em: {{ destaque.data_modificacao|date:"d F, Y" }}</p>
-					{% endif %}
-					</div>
-					</div>
-					</div>
-					{% endfor %}
-					{% endif %}
-
-					</div>
-
-					<div class="column is-1"></div>
-
 				</div>
-
+				{% endfor %}
+				{% endif %}
 			</div>
 
-		</section>
+			<div class="column is-4">
+				<div class="content has-text-left">
+					<h2>Posts em destaque</h2>
+				</div>
+				{% if destaques %}
+				{% for destaque in destaques %}
+				<div class="column is-12">
+					<div class="card">
+						<div class="card-image">
+							<figure class="image is-4by3">
+								{% if destaque.image == '' or destaque.image == NULL %}
+								<img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+								{% else %}
+								<img src="{{ destaque.image.url }}">
+								{% endif %}
+							</figure>
+						</div>
+						<div class="card-content">
+							<div class="media">
+								<div class="media-content">
+									<p class="title is-4"><a href="{% url 'blog-post' destaque.titulo %}">{{ destaque.titulo }}</a></p>
+									<p class="subtitle is-6">{{ destaque.assuntos }}</p>
+								</div>
+							</div>
+							<div class="content">
+								<p>{{ destaque.texto_postagem|truncatewords:35 }}</p>
+								<br>
+								<p class="has-text-weight-light py-2">Postado em: {{ destaque.data_postagem|date:"d F, Y" }}</p>
+								{% if destaque.data_postagem|date:"d F, Y" != destaque.data_modificacao|date:"d F, Y" %}
+								<p class="has-text-weight-light py-2">Modificado em: {{ destaque.data_modificacao|date:"d F, Y" }}</p>
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</section>
 
-		<section class="section">
-
-		<div class="container">
-
+<section class="section">
+	<div class="container">
 		<nav class="pagination is-centered" role="navigation" aria-label="pagination">
-
 			{% if postagens.has_other_pages %}
 				{% if postagens.has_previous %}
-					<a class="pagination-previous" href="?page={{postagens.previous_page_number}}">Anterior</a>
+				<a class="pagination-previous" href="?page={{postagens.previous_page_number}}">Anterior</a>
 				{% endif %}
 				{% if postagens.has_next %}
-					<a class="pagination-next" href="?page={{postagens.next_page_number}}">Próxima</a>
+				<a class="pagination-next" href="?page={{postagens.next_page_number}}">Próxima</a>
 				{% endif %}
-
 				<ul class="pagination-list">
 				{% for pagina in postagens.paginator.page_range %}
 					{% if postagens.number == pagina %}
-						<li><a class="pagination-link is-current">{{ pagina }}</a></li>
+					<li><a class="pagination-link is-current">{{ pagina }}</a></li>
 					{% elif pagina > postagens.number|add:'-3' and pagina < postagens.number|add:'3' %}
-						<li><a class="pagination-link" href="?page={{pagina}}">{{ pagina }}</a></li>
+					<li><a class="pagination-link" href="?page={{pagina}}">{{ pagina }}</a></li>
 					{% endif %}
-
 				{% endfor %}
 				</ul>
-
 			{% endif %}
 		</nav>
-
-	</div>	
-
-		</section>
+	</div>
+</section>
 
 
 {% include 'partials/_footer.html' %}
