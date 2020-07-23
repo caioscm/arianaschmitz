@@ -25,10 +25,8 @@ def blog_post(request, titulo):
     destaques = BlogPost.objects.filter(destaque=True).order_by('-data_modificacao')
     if len(destaques) >= 2:
         destaques_a_exibir = destaques[0:2]
-    elif len(destaques) == 1:
-        destaques_a_exibir = destaques
     else:
-        destaques_a_exibir = False
+        destaques_a_exibir = destaques
 
     postagem_e_destaque = {
         'postagem': postagem,
