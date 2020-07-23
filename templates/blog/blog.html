@@ -60,7 +60,6 @@
 				<div class="content has-text-left">
 					<h2>Posts em destaque</h2>
 				</div>
-				{% if destaques %}
 				{% for destaque in destaques %}
 				<div class="column is-12">
 					<div class="card">
@@ -91,8 +90,11 @@
 						</div>
 					</div>
 				</div>
+				{% empty %}
+				<div class="content has-text-left">
+					<h4 class="">Não há posts em destaque no momento.</h4>
+				</div>
 				{% endfor %}
-				{% endif %}
 			</div>
 		</div>
 	</div>

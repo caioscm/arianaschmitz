@@ -29,7 +29,7 @@
                   <h2 class="subtitle is-4">Modificado em: {{ postagem.data_modificacao|date:"d F, Y" }}</h2>
                 {% endif %}
                 <h1 class="title">{{ postagem.titulo }}</h1>
-                <p>{{ postagem.texto_postagem }}</p>
+                <p>{{ postagem.texto_postagem|linebreaksbr }}</p>
               </div>
             </div>
           </div>
