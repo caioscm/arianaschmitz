@@ -51,7 +51,7 @@
             <div class="column is-5 is-offset-1 ">
               <div class="content is-medium">
                 <h2 class="subtitle is-5 has-text-grey">{{destaque.data_modificacao}}</h2>
-                <h1 class="title has-text-black is-3">{{destaque.titulo}}</h1>
+                <h1 class="title has-text-black is-3"><a href="{% url 'blog-post' destaque.titulo %}">{{destaque.titulo}}</a></h1>
                 <p class="has-text-dark">{{destaque.texto_postagem|truncatewords:50}}</p>
               </div>
             </div>
