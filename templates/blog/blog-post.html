@@ -55,6 +55,8 @@
                 <p class="has-text-dark">{{destaque.texto_postagem|truncatewords:50}}</p>
               </div>
             </div>
+        {% empty %}
+            <h2 class="subtitle is-5 has-text-grey">Não há destaques no momento.</h2>
         {% endfor %}
           </div>
         </section>
