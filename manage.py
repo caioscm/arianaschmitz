@@ -6,7 +6,7 @@ import dotenv
 
 
 def main():
-    if os.getenv('DEV'):
+    if (os.getenv('DEV') == 'True'):
         os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ariananutricionista.dev_settings')
     else:
         os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ariananutricionista.settings')
