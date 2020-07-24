@@ -6,7 +6,11 @@ import dotenv
 
 
 def main():
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ariananutricionista.settings')
+    if os.getenv('DEV'):
+        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ariananutricionista.dev_settings')
+    else:
+        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ariananutricionista.settings')
+
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
