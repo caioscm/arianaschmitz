@@ -136,3 +136,9 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+static/_javascript/
+static/_sass/
+static/node_modules/
+static/package-lock.json
+static/package.json
