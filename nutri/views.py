@@ -61,34 +61,13 @@ def send_message(request):
         message = f"O usuário {nome} mandou esta mensagem: {texto_mensagem}.\nPara respondê-la, envie um e-mail para" \
                   f" {email}"
 
-        ''' Begin reCAPTCHA validation '''
-        recaptcha_response = request.POST.get('g-recaptcha-response')
-        url = 'https://www.google.com/recaptcha/api/siteverify'
-        values = {
-            'secret': settings.GOOGLE_RECAPTCHA_SECRET_KEY,
-            'response': recaptcha_response
-        }
-        data = urllib.parse.urlencode(values).encode()
-        req = reqst.Request(url, data=data)
-        response = reqst.urlopen(req, context=ssl.create_default_context(cafile=certifi.where()))
-        result = json.loads(response.read().decode())
-        ''' End reCAPTCHA validation '''
-
-        if result['success']:
-            try:
-                print("Entrou no envio")
-                print(send_mail(subject="Mensagem do site Ariana Nutricionista",
-                          message=message,
-                          from_email=email,
-                          recipient_list=['vittorvc@gmail.com'],
-                          fail_silently=False)
-                )
-            except BadHeaderError:
-                messages.error(request, 'Ocorreu um erro ao enviar a mensagem.')
-
-            return redirect('home')
-        else:
-            messages.error(request, 'É preciso confirmar o captcha!')
-            return redirect('home')
+        print("Entrou no envio")
+        print(send_mail(subject="Mensagem do site Ariana Nutricionista",
+                  message=message,
+                  from_email=email,
+                  recipient_list=['vittorvc@gmail.com'],
+                  fail_silently=False)
+        )
+        return redirect('home')
     else:
         return render(request, 'nutri/contato.html')
