@@ -1,8 +1,4 @@
-import json
-import urllib
-import certifi
-import ssl
-from urllib import request as reqst
+import os
 
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.mail import send_mail, BadHeaderError
@@ -65,7 +61,7 @@ def send_message(request):
         print(send_mail(subject="Mensagem do site Ariana Nutricionista",
                   message=message,
                   from_email=email,
-                  recipient_list=['vittorvc@gmail.com'],
+                  recipient_list=[os.getenv('EMAIL_RECIPIENT_ENV')],
                   fail_silently=False)
         )
         return redirect('home')
